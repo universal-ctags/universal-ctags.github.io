@@ -1,0 +1,16 @@
+# Permalinks
+permalink:        pretty
+
+# Setup
+title: 'Universal Ctags'
+tagline: ''
+description: 'A fork of Exuberant Ctags that aims to modernize and improve the codebase.'
+url: 'https://ctags.io'
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+version: 0.1.0
+
+github:
+  repo: https://github.com/universal-ctags/ctags
