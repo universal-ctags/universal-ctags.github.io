@@ -3,8 +3,8 @@ permalink:        pretty
 
 # Setup
 title: 'Universal Ctags'
-tagline: ''
-description: 'A fork of Exuberant Ctags that aims to modernize and improve the codebase.'
+tagline: 'A maintained ctags implementation'
+description: 'A maintained ctags implementation'
 url: 'https://ctags.io'
 
 paginate: 5
