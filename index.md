@@ -20,5 +20,3 @@ you can do to help us:
 * You can take a look at the [pull requests](https://github.com/universal-ctags/ctags/pulls) and review the proposed changes.
 * Our [Hacking Guide](https://github.com/universal-ctags/ctags/tree/master/docs) contains a lot of information on how to build and test ctags.
 * You can [find an issue](https://github.com/universal-ctags/ctags/issues) to work on and submit your own pull request.
-* You can [help us package ctags](https://github.com/universal-ctags/ctags/issues/354) for different platforms.
-
