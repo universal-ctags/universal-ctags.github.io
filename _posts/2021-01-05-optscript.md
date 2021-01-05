@@ -16,14 +16,7 @@ already.
 You can use optscript to add extra actions to `--regex-<LANG>=`
 option by putting optscript code at the end of the option. You
 must wrap the code with 
-{% raw %}
-`{{`
-{% endraw %}
-and 
-{% raw %}
-`}}`
-{% endraw %}
-.
+{% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %}.
 
 Let's see an example.
 
@@ -85,14 +78,7 @@ In the example Universal-ctags with `example.ctags` extracts
 The code written in optscript does this transformation.
 
 Let's look the code between 
-{% raw %}
-`--regex-hello=/^def +([-a-z]+):$/\1/d/{{`
-{% endraw %}
-and 
-{% raw %}
-`}}`
-{% endraw %}
-.
+{% raw %}`--regex-hello=/^def +([-a-z]+):$/\1/d/{{`{% endraw %} and {% raw %}`}}`{% endraw %}.
 
 {% raw %}
 ```
@@ -106,7 +92,7 @@ This fragment defines a procedure named `putlast`.
 {% raw %}
 ```
 	/tr {
-...
+     ...
 	} def
 ```
 {% endraw %}
@@ -133,16 +119,11 @@ for the next step.
 ```
 {% endraw %}
 
-`.` represents a tag entry for `x-y-z` extracted by the
-regular expression pattern `/^def +([-a-z]+):$/`.  A tag entry
-(`tagEntryInfo`) having `x-y-z` as name and `d` as kind is already
-built on the memory, but ctags doesn't emit it to a tags file yet because
-ctags must execute the action specified with 
-{% raw %}
-`{{...}}`
-{% endraw %}
-before
-emitting.
+`.` represents a tag entry (`tagEntryInfo`) for `x-y-z` extracted by the
+regular expression pattern `/^def +([-a-z]+):$/`. The tag entry
+having `x-y-z` as name, and `d` as kind is already
+built on the memory but ctags doesn't emit it to a tags file yet because
+ctags must execute the action specified with {% raw %}`{{...}}`{% endraw %} before emitting.
 
 `. :name` gets the name of the tag entry as a string and
 put it to the operand stack of optscript interpreter.
@@ -157,9 +138,9 @@ x_y_z	input.hello	/^def x-y-z:$/;"	d
 ```
 
 I will add more operators to export the ctags internal APIs that could
-be used only from parsers (crated parsers) written in C language.
-Providing the way to access the scope stack is the primary target. It will
-be an important part for Vue parser.
+be used only from parsers (crafted parsers) written in C language.
+Providing operators to access the scope stack is the primary target. It will
+be an important part of Vue parser.
 See https://github.com/universal-ctags/ctags/issues/1577 about the background.
 
 Do you want to use optscript in your .ctags?  You can learn the language with
