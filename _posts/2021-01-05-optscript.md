@@ -15,7 +15,15 @@ already.
 
 You can use optscript to add extra actions to `--regex-<LANG>=`
 option by putting optscript code at the end of the option. You
-must wrap the code with `{{` and `}}`.
+must wrap the code with 
+{% raw %}
+`{{`
+{% endraw %}
+and 
+{% raw %}
+`}}`
+{% endraw %}
+.
 
 Let's see an example.
 
@@ -26,6 +34,7 @@ end
 ```
 
 optlib file (`example.ctags`):
+{% raw %}
 ```
 --langdef=hello
 --kinddef-hello=d,def,definitions
@@ -61,6 +70,7 @@ optlib file (`example.ctags`):
 	} if
 }}
 ```
+{% endraw %}
 
 ctags execution:
 ```
@@ -74,21 +84,32 @@ In the example Universal-ctags with `example.ctags` extracts
 `example.ctags` transforms the tag name `x-y-z` to `x_y_z`.
 The code written in optscript does this transformation.
 
-Let's look the code between `--regex-hello=/^def +([-a-z]+):$/\1/d/{{`
-and `}}`.
+Let's look the code between 
+{% raw %}
+`--regex-hello=/^def +([-a-z]+):$/\1/d/{{`
+{% endraw %}
+and 
+{% raw %}
+`}}`
+{% endraw %}
+.
 
+{% raw %}
 ```
 	/putlast { 1 index length exch put } def
 ```
+{% endraw %}
 
 This fragment defines a procedure named `putlast`.
 `putlast` put a character at the end of a string buffer.
 
+{% raw %}
 ```
 	/tr {
 ...
 	} def
 ```
+{% endraw %}
 
 This defines a procedure named `tr`.
 `tr` replaces translates characters.
@@ -103,18 +124,24 @@ In the above example, tr replaces `_` in `a_b_c` with
 Defining `putlast` and `tr` is just for the preparation
 for the next step.
 
+{% raw %}
 ```
 	. :name {
 	   dup (-_) tr
 	   . exch name:
 	} if
 ```
+{% endraw %}
 
 `.` represents a tag entry for `x-y-z` extracted by the
 regular expression pattern `/^def +([-a-z]+):$/`.  A tag entry
 (`tagEntryInfo`) having `x-y-z` as name and `d` as kind is already
 built on the memory, but ctags doesn't emit it to a tags file yet because
-ctags must execute the action specified with `{{...}}` before
+ctags must execute the action specified with 
+{% raw %}
+`{{...}}`
+{% endraw %}
+before
 emitting.
 
 `. :name` gets the name of the tag entry as a string and
