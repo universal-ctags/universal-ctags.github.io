@@ -3,7 +3,7 @@ layout: post
 title: optscript
 ---
 
-For server years, @masatake has made the execution of ctags slower.
+For seven years, @masatake has made the execution of ctags slower.
 He is working hard for implementing yet another feature called
 **optscript** that makes the execution much slower.
 
